@@ -21,7 +21,10 @@ const Signup = () => {
         password: form.password.trim(),
       };
 
-      const res = await axios.post("http://localhost:5000/api/auth/signup", trimmedForm);
+      const res = await axios.post(
+        "https://mern-auth-backend-tmcf.onrender.com/api/auth/signup",
+        trimmedForm
+      );
       alert(res.data.message || "OTP sent to your email!");
       setShowOtp(true);
       console.log("✅ OTP sent to:", trimmedForm.email);
@@ -35,10 +38,13 @@ const Signup = () => {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
-        email: form.email.trim(),
-        otp: otp.trim(),
-      });
+      const res = await axios.post(
+        "https://mern-auth-backend-tmcf.onrender.com/api/auth/verify-otp",
+        {
+          email: form.email.trim(),
+          otp: otp.trim(),
+        }
+      );
       alert(res.data.message || "OTP verified. Signup successful!");
       console.log("✅ Signup successful for:", form.email);
 
@@ -48,7 +54,7 @@ const Signup = () => {
       setShowOtp(false);
 
       // Optional redirect to login
-      // window.location.href = "/login";
+      window.location.href = "/login";
     } catch (err) {
       console.error("❌ OTP verification failed:", err.response?.data?.message);
       alert(err?.response?.data?.message || "OTP verification failed");

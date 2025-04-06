@@ -2,14 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Navbar = ({ isLoggedIn, setIsLoggedIn, userName }) => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // true if token exists
-  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -20,15 +14,15 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-links">
-        {!isLoggedIn && (
+        {!isLoggedIn ? (
           <>
             <Link to="/signup">Signup</Link>
             <Link to="/login">Login</Link>
           </>
-        )}
-        {isLoggedIn && (
+        ) : (
           <>
             <Link to="/protected">Protected</Link>
+            <span className="username">Welcome, {userName}</span>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>

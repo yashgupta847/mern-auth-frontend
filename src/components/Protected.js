@@ -56,6 +56,9 @@ const Protected = () => {
             Hey {userName} 👾 You're In!
           </p>
         )}
+         <p style={{ fontSize: "18px", color: "green", marginBottom: "10px" }}>
+          <a href ="www.amazon.in"> Here You CheckOut Details!</a>
+        </p>
       </div>
     </div>
   );

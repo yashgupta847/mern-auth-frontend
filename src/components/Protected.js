@@ -12,7 +12,7 @@ const Protected = () => {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:5000/api/auth/protected",
+          "https://mern-auth-backend-tmcf.onrender.com/api/auth/protected", // Use your deployed backend URL
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -20,8 +20,14 @@ const Protected = () => {
           }
         );
 
+        console.log("API Response:", res.data); // Debugging the response
+
         setMessage(res.data.message);
-        setUserName(res.data.name);
+        if (res.data.name) {
+          setUserName(res.data.name); // Ensure the name is correctly set
+        } else {
+          setUserName("No username found"); // Fallback if name is not in the response
+        }
       } catch (err) {
         console.log("Protected error:", err);
         setMessage("Access denied. Please login.");
@@ -50,8 +56,6 @@ const Protected = () => {
             Hey {userName} 👾 You're In!
           </p>
         )}
-          
-        
       </div>
     </div>
   );

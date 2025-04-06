@@ -22,7 +22,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, userName }) => {
         ) : (
           <>
             <Link to="/protected">Protected</Link>
-            <span className="username">Welcome, {userName}</span>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>

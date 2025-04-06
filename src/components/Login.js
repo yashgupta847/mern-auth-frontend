@@ -87,6 +87,11 @@ const Login = ({ setIsLoggedIn }) => {
     }
   };
 
+  // Forgot password click handler
+  const handleForgotPassword = () => {
+    navigate("/forgot-password"); // Redirect to the forgot password page
+  };
+
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
@@ -95,6 +100,13 @@ const Login = ({ setIsLoggedIn }) => {
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
         <button type="submit">Login</button>
       </form>
+      
+      {/* Forgot password link */}
+      <div className="forgot-password-container">
+        <p onClick={handleForgotPassword} className="forgot-password-link">
+          Forgot Password?
+        </p>
+      </div>
     </div>
   );
 };

@@ -53,8 +53,8 @@
     font-size: 24px;
     text-align: center;
     color: black; /* 👈 this line sets the text color to black */
-  }
-  .forgot-password-link {
+   }
+  /* .forgot-password-link {
     margin-top: 10px;
     text-align: right;
   }
@@ -67,8 +67,8 @@
   
   .forgot-password-link a:hover {
     text-decoration: underline;
-  }
-  
+  } */
+   */
 
 
 

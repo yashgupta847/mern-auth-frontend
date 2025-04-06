@@ -99,7 +99,7 @@ const Login = ({ setIsLoggedIn }) => {
         <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
         <button type="submit">Login</button>
-      </form>
+      
       
       {/* Forgot password link */}
       <div className="forgot-password-container">
@@ -107,7 +107,9 @@ const Login = ({ setIsLoggedIn }) => {
           Forgot Password?
         </p>
       </div>
+      </form>
     </div>
+   
   );
 };
 
